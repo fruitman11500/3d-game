@@ -21,10 +21,12 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 2 )
 
-[node name="h" type="Spatial" parent="KinematicBody"]
+[node name="Spatial" type="Spatial" parent="KinematicBody"]
 script = ExtResource( 2 )
 
-[node name="ClippedCamera" type="ClippedCamera" parent="KinematicBody/h"]
+[node name="h" type="Spatial" parent="KinematicBody/Spatial"]
+
+[node name="ClippedCamera" type="ClippedCamera" parent="KinematicBody/Spatial/h"]
 transform = Transform( 1, 0, 0, 0, 0.922975, 0.384859, 0, -0.384859, 0.922975, 0, 2, 3 )
 fov = 119.378
 

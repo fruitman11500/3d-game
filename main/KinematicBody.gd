@@ -47,12 +47,4 @@ func _physics_process(delta):
 	print(velocity)
 	
 	
-func camera():
-	if face_back == true:
-		camera.y = 180
-	if face_forward == true:
-		camera.rotation_degrees.y = 0
-	if face_left == true:
-		camera.rotation_degrees.y = -90
-	if face_right == true:
-		camera.rotation_degrees.y = 90
+

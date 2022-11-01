@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://KinematicBody.gd" type="Script" id=1]
-[ext_resource path="res://camera.gd" type="Script" id=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -21,12 +20,11 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 2 )
 
-[node name="h" type="Spatial" parent="KinematicBody"]
-script = ExtResource( 2 )
+[node name="Spatial" type="Spatial" parent="KinematicBody"]
 
-[node name="ClippedCamera" type="ClippedCamera" parent="KinematicBody/h"]
-transform = Transform( 1, 0, 0, 0, 0.922975, 0.384859, 0, -0.384859, 0.922975, 0, 2, 3 )
-fov = 119.378
+[node name="Camera" type="Camera" parent="KinematicBody/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00701141, 1.87286, 4.20879 )
+fov = 150.014
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8843, 0.450332, -12.8725 )
