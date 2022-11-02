@@ -3,7 +3,7 @@ extends KinematicBody
 
 var velocity = Vector3.ZERO
 var speed = 10
-onready var camera = $Spatial
+onready var camera = $Spatial/Camera
 var face_left = false
 var face_right = false 
 var face_back = false 
