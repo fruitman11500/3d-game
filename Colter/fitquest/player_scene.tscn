@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://player_healthbar.gd" type="Script" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://red progress.png" type="Texture" id=3]
+[ext_resource path="res://built boy.png" type="Texture" id=4]
+[ext_resource path="res://pixel_over.png" type="Texture" id=5]
+[ext_resource path="res://grey underbar.png" type="Texture" id=6]
+[ext_resource path="res://slime.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13, 20.5 )
+
+[node name="world" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -1, 6.5 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 0, -7.62939e-06 )
+scale = Vector2( 0.0549998, 0.0558333 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2( 0.4, 0.4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Control" type="Control" parent="Player"]
+margin_left = 29.0
+margin_top = -114.0
+margin_right = 227.0
+margin_bottom = -11.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="healthbar" type="TextureProgress" parent="Player/Control"]
+margin_left = -221.0
+margin_top = 163.0
+margin_right = -16.0
+margin_bottom = 273.0
+value = 20.0
+texture_under = ExtResource( 6 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Node"]
+position = Vector2( 71, -6 )
+scale = Vector2( 0.0466667, 0.0508333 )
+texture = ExtResource( 7 )
+
+[connection signal="hurt" from="Player" to="Player/Control" method="_on_Player_hurt"]
