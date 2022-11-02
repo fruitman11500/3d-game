@@ -1,0 +1,642 @@
+[gd_scene load_steps=77 format=2]
+
+[ext_resource path="res://red progress.png" type="Texture" id=1]
+[ext_resource path="res://pixil-frame-0 (15).png" type="Texture" id=2]
+[ext_resource path="res://grey underbar.png" type="Texture" id=3]
+[ext_resource path="res://pixel_over.png" type="Texture" id=4]
+[ext_resource path="res://player.gd" type="Script" id=5]
+[ext_resource path="res://player_healthbar.gd" type="Script" id=6]
+[ext_resource path="res://world_control.gd" type="Script" id=7]
+[ext_resource path="res://pixil-frame-0 (16).png" type="Texture" id=8]
+[ext_resource path="res://slime1.gd" type="Script" id=9]
+[ext_resource path="res://stone_wall.png" type="Texture" id=10]
+[ext_resource path="res://cave_ground.png" type="Texture" id=11]
+[ext_resource path="res://pixil-frame-0 (14).png" type="Texture" id=12]
+[ext_resource path="res://tutorial_text.gd" type="Script" id=13]
+[ext_resource path="res://pixil-frame-0 (18).png" type="Texture" id=14]
+[ext_resource path="res://pixil-frame-0 (20).png" type="Texture" id=15]
+[ext_resource path="res://drea.png" type="Texture" id=16]
+[ext_resource path="res://pixil-frame-0 (21).png" type="Texture" id=17]
+[ext_resource path="res://guide.gd" type="Script" id=18]
+[ext_resource path="res://pixilart-drawing (7).png" type="Texture" id=19]
+[ext_resource path="res://pixil-frame-0 (23).png" type="Texture" id=20]
+[ext_resource path="res://slimes.gd" type="Script" id=21]
+[ext_resource path="res://bigbob.gd" type="Script" id=22]
+[ext_resource path="res://level1.gd" type="Script" id=23]
+[ext_resource path="res://loading screen.gd" type="Script" id=24]
+[ext_resource path="res://pixil-frame-0 (24).png" type="Texture" id=25]
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 20, 16 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 21, 64 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 8 )
+region = Rect2( 21, 0, 21, 64 )
+
+[sub_resource type="SpriteFrames" id=51]
+animations = [ {
+"frames": [ SubResource( 49 ), SubResource( 50 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 50, 0, 50, 100 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 100, 0, 50, 100 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 18, 100 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 18, 100 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 16 )
+region = Rect2( 18, 0, 18, 100 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 16 )
+region = Rect2( 36, 0, 18, 100 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 16, 100 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 17 )
+region = Rect2( 16, 0, 16, 100 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 17 )
+region = Rect2( 32, 0, 16, 100 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "attack",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 30 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 11.5, 22 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 428, 10 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( -272, 100 )
+b = Vector2( 595, 99 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( -261, -95 )
+b = Vector2( -261, 99 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 10, 86.5 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 10, 70.3629 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 10, 420.5 )
+
+[sub_resource type="RectangleShape2D" id=41]
+extents = Vector2( 382.25, 10 )
+
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 10, 161.5 )
+
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 6.3833, 18.8889 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 20 )
+region = Rect2( 32, 0, 32, 64 )
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ SubResource( 36 ) ],
+"loop": true,
+"name": "closed",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 37 ) ],
+"loop": true,
+"name": "open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 10, 66.5 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 351.5, 10 )
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 214, 72.875 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9, 22 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 204.938, 55.8212 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 14 )
+region = Rect2( 180, 0, 20, 33 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 14 )
+region = Rect2( 160, 0, 20, 33 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 20, 33 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 14 )
+region = Rect2( 20, 0, 20, 33 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 120, 0, 20, 100 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 140, 0, 20, 100 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 40, 0, 20, 100 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 12 )
+region = Rect2( 66, 0, 22, 100 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 12 )
+region = Rect2( 88, 0, 22, 100 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 20, 100 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 20, 0, 20, 100 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 20, 100 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 0, 20, 100 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "attack left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "attack right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 50, 0, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 100, 0, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 150, 0, 50, 50 )
+
+[sub_resource type="SpriteFrames" id=56]
+animations = [ {
+"frames": [ SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="level 1" type="Node2D" parent="."]
+script = ExtResource( 23 )
+
+[node name="enemies" type="Node" parent="level 1"]
+
+[node name="slime1" type="Node" parent="level 1/enemies"]
+script = ExtResource( 9 )
+
+[node name="Area2D" type="Area2D" parent="level 1/enemies/slime1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/enemies/slime1/Area2D"]
+position = Vector2( 152, 40 )
+shape = SubResource( 48 )
+
+[node name="slime" type="AnimatedSprite" parent="level 1/enemies/slime1"]
+position = Vector2( 152, 40 )
+frames = SubResource( 51 )
+frame = 1
+playing = true
+
+[node name="slime2" type="Node" parent="level 1/enemies"]
+script = ExtResource( 21 )
+
+[node name="hitbox" type="Area2D" parent="level 1/enemies/slime2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/enemies/slime2/hitbox"]
+position = Vector2( 664, -96 )
+shape = SubResource( 48 )
+
+[node name="slime" type="AnimatedSprite" parent="level 1/enemies/slime2"]
+position = Vector2( 664, -96 )
+frames = SubResource( 51 )
+playing = true
+
+[node name="slime3" type="Node" parent="level 1/enemies"]
+script = ExtResource( 21 )
+
+[node name="hitbox" type="Area2D" parent="level 1/enemies/slime3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/enemies/slime3/hitbox"]
+position = Vector2( 1056, -96 )
+shape = SubResource( 48 )
+
+[node name="slime" type="AnimatedSprite" parent="level 1/enemies/slime3"]
+position = Vector2( 1056, -96 )
+frames = SubResource( 51 )
+playing = true
+
+[node name="guide" type="KinematicBody2D" parent="level 1"]
+script = ExtResource( 18 )
+
+[node name="animation" type="AnimatedSprite" parent="level 1/guide"]
+position = Vector2( 116, 29 )
+scale = Vector2( 1.47, 1.68 )
+frames = SubResource( 29 )
+animation = "idle"
+speed_scale = 0.75
+playing = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/guide"]
+position = Vector2( 112.5, 32 )
+shape = SubResource( 34 )
+disabled = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="level 1/guide"]
+margin_left = 95.0
+margin_top = -8.0
+margin_right = 135.0
+margin_bottom = 6.0
+grow_horizontal = 2
+align = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="level_1" type="KinematicBody2D" parent="level 1" groups=["player"]]
+show_behind_parent = true
+position = Vector2( -16, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="level 1 textures" type="Sprite" parent="level 1/level_1"]
+show_behind_parent = true
+position = Vector2( -464, -40 )
+texture = ExtResource( 10 )
+offset = Vector2( 304, -8 )
+
+[node name="StoneWall" type="Sprite" parent="level 1/level_1"]
+show_behind_parent = true
+position = Vector2( 96, -48 )
+texture = ExtResource( 10 )
+offset = Vector2( -56, 0 )
+
+[node name="StoneWall2" type="Sprite" parent="level 1/level_1"]
+show_behind_parent = true
+position = Vector2( 296, -48 )
+texture = ExtResource( 10 )
+offset = Vector2( -56, 0 )
+
+[node name="StoneWall3" type="Sprite" parent="level 1/level_1"]
+show_behind_parent = true
+position = Vector2( 496, -48 )
+texture = ExtResource( 10 )
+offset = Vector2( -56, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/level_1"]
+position = Vector2( 144, -48 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="level 1/level_1"]
+shape = SubResource( 5 )
+
+[node name="CaveGround" type="Sprite" parent="level 1/level_1"]
+position = Vector2( -104, 96 )
+texture = ExtResource( 11 )
+offset = Vector2( -56, -48 )
+
+[node name="CaveGround2" type="Sprite" parent="level 1/level_1"]
+position = Vector2( 0, 80 )
+texture = ExtResource( 11 )
+offset = Vector2( 35, -32 )
+
+[node name="CaveGround4" type="Sprite" parent="level 1/level_1"]
+position = Vector2( 488, 96 )
+texture = ExtResource( 11 )
+offset = Vector2( -56, -48 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="level 1/level_1"]
+position = Vector2( 9, 0 )
+shape = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="level 1/level_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/level_1/Area2D"]
+position = Vector2( 29, 44 )
+shape = SubResource( 35 )
+
+[node name="CaveGround5" type="Sprite" parent="level 1/level_1"]
+position = Vector2( 881.491, 72 )
+scale = Vector2( 3.50509, 7.65705 )
+texture = ExtResource( 11 )
+
+[node name="CaveGround3" type="Sprite" parent="level 1/level_1"]
+position = Vector2( 200, 80 )
+texture = ExtResource( 11 )
+offset = Vector2( 35, -32 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="level 1/level_1"]
+position = Vector2( 521, 278.5 )
+scale = Vector2( 1, 2.48 )
+shape = SubResource( 39 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="level 1/level_1"]
+position = Vector2( 1242, 65.5 )
+shape = SubResource( 40 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="level 1/level_1"]
+position = Vector2( 908.75, -321 )
+shape = SubResource( 41 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="level 1/level_1"]
+position = Vector2( 521, -209 )
+shape = SubResource( 42 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="level 1/level_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/level_1/KinematicBody2D"]
+position = Vector2( 1219.61, 35.5 )
+scale = Vector2( 5.42183, 3.62648 )
+shape = SubResource( 43 )
+
+[node name="door" type="AnimatedSprite" parent="level 1/level_1/KinematicBody2D"]
+position = Vector2( 1200, 40 )
+scale = Vector2( 5.42183, 3.62648 )
+frames = SubResource( 38 )
+animation = "closed"
+offset = Vector2( 4.78508, 1.21905 )
+
+[node name="Area2D" type="Area2D" parent="level 1/level_1/KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/level_1/KinematicBody2D/Area2D"]
+position = Vector2( 1235, 35.5 )
+shape = SubResource( 44 )
+
+[node name="bigbob" type="Node" parent="level 1"]
+script = ExtResource( 22 )
+
+[node name="big_bob" type="KinematicBody2D" parent="level 1/bigbob"]
+show_behind_parent = true
+
+[node name="Sprite" type="Sprite" parent="level 1/bigbob/big_bob"]
+show_behind_parent = true
+position = Vector2( 863, 337.5 )
+scale = Vector2( 0.69, 0.41 )
+texture = ExtResource( 19 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/bigbob/big_bob"]
+position = Vector2( 866, 325 )
+shape = SubResource( 45 )
+
+[node name="range_damage" type="Area2D" parent="level 1/bigbob/big_bob"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level 1/bigbob/big_bob/range_damage"]
+position = Vector2( 864, 240.875 )
+shape = SubResource( 47 )
+
+[node name="Node2D" type="Node2D" parent="level 1/bigbob"]
+position = Vector2( 856, 306 )
+scale = Vector2( -2.40762, 1 )
+
+[node name="Position2D" type="Position2D" parent="level 1/bigbob/Node2D"]
+position = Vector2( -3.05176e-05, -10 )
+
+[node name="Player" type="KinematicBody2D" parent="." groups=["player"]]
+position = Vector2( -216, 32 )
+z_index = 50
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -8, 0 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.4, 0.4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Control" type="Control" parent="Player"]
+margin_left = 29.0
+margin_top = -114.0
+margin_right = 227.0
+margin_bottom = -11.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Player/Control"]
+margin_left = -221.0
+margin_top = 163.0
+margin_right = -16.0
+margin_bottom = 273.0
+texture_under = ExtResource( 3 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="melee_range" type="Area2D" parent="Player"]
+scale = Vector2( -0.331808, 0.757984 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/melee_range"]
+position = Vector2( 12.0552, 12.2847 )
+shape = SubResource( 2 )
+
+[node name="animations" type="AnimatedSprite" parent="Player"]
+position = Vector2( -6, -6 )
+scale = Vector2( -1.65773, 1.62441 )
+frames = SubResource( 16 )
+animation = "idle"
+playing = true
+flip_h = true
+
+[node name="tutorial_text" type="Control" parent="Player"]
+margin_left = 214.0
+margin_top = -24.0
+margin_right = 254.0
+margin_bottom = 16.0
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="Player/tutorial_text"]
+margin_left = -276.0
+margin_top = 118.0
+margin_right = -236.0
+margin_bottom = 132.0
+
+[node name="Sprite" type="Sprite" parent="Player"]
+
+[node name="Position2D" type="Position2D" parent="Player"]
+position = Vector2( -8, 4 )
+
+[node name="loading screen" type="Node" parent="."]
+script = ExtResource( 24 )
+
+[node name="Camera2D" type="Camera2D" parent="loading screen"]
+position = Vector2( -2160, -16 )
+zoom = Vector2( 0.2, 0.2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="loading screen"]
+position = Vector2( -2164, -16 )
+scale = Vector2( 4.31999, 2.56 )
+frames = SubResource( 56 )
+frame = 2
+playing = true
+
+[connection signal="finished" from="level 1" to="Player" method="_on_Node2D_finished"]
+[connection signal="finished" from="level 1" to="loading screen" method="_on_Node2D_finished"]
+[connection signal="loading" from="level 1" to="loading screen" method="_on_Node2D_loading"]
+[connection signal="dead_slime" from="level 1/enemies/slime1" to="level 1/guide" method="_on_slime1_dead_slime"]
+[connection signal="slime_hurt" from="level 1/enemies/slime1" to="Player" method="_on_slime1_slime_hurt"]
+[connection signal="area_entered" from="level 1/enemies/slime1/Area2D" to="level 1/enemies/slime1" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="level 1/enemies/slime1/Area2D" to="Player" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="level 1/enemies/slime1/Area2D" to="level 1/enemies/slime1" method="_on_Area2D_area_exited"]
+[connection signal="body_entered" from="level 1/enemies/slime1/Area2D" to="level 1/enemies/slime1" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="level 1/enemies/slime1/Area2D" to="Player" method="_on_Area2D_body_entered"]
+[connection signal="dead_slime" from="level 1/enemies/slime2" to="level 1/guide" method="_on_slime1_dead_slime"]
+[connection signal="area_entered" from="level 1/enemies/slime2/hitbox" to="level 1/enemies/slime2" method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="level 1/enemies/slime2/hitbox" to="level 1/enemies/slime2" method="_on_hitbox_area_exited"]
+[connection signal="dead_slime" from="level 1/enemies/slime3" to="level 1/guide" method="_on_slime1_dead_slime"]
+[connection signal="area_entered" from="level 1/enemies/slime3/hitbox" to="level 1/enemies/slime3" method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="level 1/enemies/slime3/hitbox" to="level 1/enemies/slime3" method="_on_hitbox_area_exited"]
+[connection signal="finish" from="level 1/guide" to="level 1/guide" method="_on_guide_finish"]
+[connection signal="area_entered" from="level 1/level_1/Area2D" to="Player/tutorial_text" method="_on_Area2D_area_entered"]
+[connection signal="big_bob_close_hit" from="level 1/bigbob" to="Player" method="_on_bigbob_big_bob_close_hit"]
+[connection signal="big_bob_close_hit" from="level 1/bigbob" to="Player/Control" method="_on_bigbob_big_bob_close_hit"]
+[connection signal="truth" from="level 1/bigbob" to="level 1/bigbob" method="_on_bigbob_truth"]
+[connection signal="area_entered" from="level 1/bigbob/big_bob/range_damage" to="level 1/bigbob" method="_on_range_damage_area_entered"]
+[connection signal="area_exited" from="level 1/bigbob/big_bob/range_damage" to="level 1/bigbob" method="_on_range_damage_area_exited"]
+[connection signal="end" from="Player" to="level 1" method="_on_Player_end"]
+[connection signal="end" from="Player" to="loading screen" method="_on_Player_end"]
+[connection signal="hit" from="Player" to="level 1/enemies/slime1" method="_on_Player_hit"]
+[connection signal="hit" from="Player" to="level 1/enemies/slime2" method="_on_Player_hit"]
+[connection signal="hit" from="Player" to="level 1/enemies/slime3" method="_on_Player_hit"]
+[connection signal="hit" from="Player" to="Player" method="_on_Player_hit"]
+[connection signal="hurt" from="Player" to="Player/Control" method="_on_Player_hurt"]
