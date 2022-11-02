@@ -1,9 +1,8 @@
 extends KinematicBody
 
 
-var velocity = Vector3.FORWARD
+var velocity = Vector3.ZERO
 var speed = 50
-var h_rot = $Spatial/h.global_transform.basis.get_euler().y
 
 func get_input():
 	if Input.is_action_pressed("left"):
@@ -20,6 +19,7 @@ func get_input():
 		velocity.z = 0
 
 func _physics_process(delta):
-	Vector3()
 	get_input()
+	Vector3(0,0,0).rotated(rotation.normalized(),$Spatial.camrot_h)
 	move_and_slide(velocity * speed)
+	print ($Spatial.camrot_h)
